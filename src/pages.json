@@ -103,11 +103,7 @@
 		  "path": "pages/login/index",
 		  "query": ""
 		},
-		{
-		  "name": "测试",
-		  "path": "pages/test/index",
-		  "query": ""
-		},
+		
 		{
 		  "name": "修改个人信息",
 		  "path": "pages/my/profile",
