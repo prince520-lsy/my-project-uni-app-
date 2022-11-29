@@ -1,65 +1,133 @@
 {
 	"easycom": {
-		"autoscan": true,
-		"custom": {
-			// uni-ui 规则如下配置
-			"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
-		}
+	  "autoscan": true,
+	  "custom": {
+		// uni-ui 规则如下配置
+		"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+	  }
 	},
 	"pages": [
-		{
-		  "path": "pages/index/index",
-		  "style": {}
-		},
-		{
-		  "path": "pages/category/index",
-		  "style": {}
-		},
-		{
-		  "path": "pages/cart/index",
-		  "style": {}
-		},
-		{
-		  "path": "pages/my/index",
-		  "style": {}
+	  {
+		"path": "pages/index/index",
+		"style": {
+		  "navigationStyle": "custom",
+		  "navigationBarTextStyle": "white"
 		}
-	  ],
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "小兔鲜儿",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
 	  },
-	  "tabBar": {
-		"color": "#333",
-		"selectedColor": "#27ba9b",
-		"backgroundColor": "#fff",
-		"borderStyle": "white",
-		"list": [
-		  {
-			"text": "首页",
-			"pagePath": "pages/index/index",
-			"iconPath": "static/tabs/home_default.png",
-			"selectedIconPath": "static/tabs/home_selected.png"
-		  },
-		  {
-			"text": "分类",
-			"pagePath": "pages/category/index",
-			"iconPath": "static/tabs/category_default.png",
-			"selectedIconPath": "static/tabs/category_selected.png"
-		  },
-		  {
-			"text": "购物车",
-			"pagePath": "pages/cart/index",
-			"iconPath": "static/tabs/cart_default.png",
-			"selectedIconPath": "static/tabs/cart_selected.png"
-		  },
-		  {
-			"text": "我的",
-			"pagePath": "pages/my/index",
-			"iconPath": "static/tabs/user_default.png",
-			"selectedIconPath": "static/tabs/user_selected.png"
-		  }
-		]
+	  {
+		"path": "pages/login/index",
+		"style": {
+		  "navigationBarTitleText": "登录"
+		}
+	  },
+	  {
+		"path": "pages/test/index",
+		"style": {
+		  "navigationBarTitleText": "测试"
+		}
+	  },
+	  {
+		"path": "pages/recommend/index",
+		"style": {}
+	  },
+	  {
+		"path": "pages/category/index",
+		"style": {}
+	  },
+	  {
+		"path": "pages/cart/index",
+		"style": {}
+	  },
+	  {
+		"path": "pages/my/profile",
+		"style": {
+		  "navigationStyle": "custom",
+		  "navigationBarTextStyle": "white"
+		}
+	  },
+	  {
+		"path": "pages/my/index",
+		"style": {
+		  "navigationStyle": "custom"
+		}
 	  }
-}
+	],
+	"globalStyle": {
+	  "navigationBarTextStyle": "black",
+	  "navigationBarTitleText": "小兔鲜儿",
+	  "navigationBarBackgroundColor": "#F8F8F8",
+	  "backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+	  "color": "#333",
+	  "selectedColor": "#27ba9b",
+	  "backgroundColor": "#fff",
+	  "borderStyle": "white",
+	  "list": [
+		{
+		  "text": "首页",
+		  "pagePath": "pages/index/index",
+		  "iconPath": "static/tabs/home_default.png",
+		  "selectedIconPath": "static/tabs/home_selected.png"
+		},
+		{
+		  "text": "分类",
+		  "pagePath": "pages/category/index",
+		  "iconPath": "static/tabs/category_default.png",
+		  "selectedIconPath": "static/tabs/category_selected.png"
+		},
+		{
+		  "text": "购物车",
+		  "pagePath": "pages/cart/index",
+		  "iconPath": "static/tabs/cart_default.png",
+		  "selectedIconPath": "static/tabs/cart_selected.png"
+		},
+		{
+		  "text": "我的",
+		  "pagePath": "pages/my/index",
+		  "iconPath": "static/tabs/user_default.png",
+		  "selectedIconPath": "static/tabs/user_selected.png"
+		}
+	  ]
+	},
+	"condition": {
+	  "current": 1,
+	  "list": [
+		{
+		  "name": "首页",
+		  "path": "pages/index/index",
+		  "query": ""
+		},
+		{
+		  "name": "登录",
+		  "path": "pages/login/index",
+		  "query": ""
+		},
+		{
+		  "name": "测试",
+		  "path": "pages/test/index",
+		  "query": ""
+		},
+		{
+		  "name": "修改个人信息",
+		  "path": "pages/my/profile",
+		  "query": ""
+		},
+		{
+		  "name": "分类",
+		  "path": "pages/category/index",
+		  "query": ""
+		},
+		{
+		  "name": "我的",
+		  "path": "pages/my/index",
+		  "query": ""
+		},
+		{
+		  "name": "推荐",
+		  "path": "pages/recommend/index",
+		  "query": "type=1"
+		}
+	  ]
+	}
+  }
