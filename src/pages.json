@@ -20,12 +20,7 @@
 		  "navigationBarTitleText": "登录"
 		}
 	  },
-	  {
-		"path": "pages/test/index",
-		"style": {
-		  "navigationBarTitleText": "测试"
-		}
-	  },
+
 	  {
 		"path": "pages/recommend/index",
 		"style": {}
