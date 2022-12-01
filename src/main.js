@@ -1,12 +1,13 @@
-import Vue from 'vue'
-import App from './App'
-import store from './store'
-Vue.config.productionTip = false
+import Vue from "vue";
+import App from "./App";
+import store from "./store"; // 新代码
 
-App.mpType = 'app'
+Vue.config.productionTip = false;
+
+App.mpType = "app";
 
 const app = new Vue({
-  store,
-  ...App
-})
-app.$mount()
+  store, // 新代码
+  ...App,
+});
+app.$mount();
