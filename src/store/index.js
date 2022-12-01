@@ -8,7 +8,8 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
         text: "",
-        safeArea:uni.getSystemInfoSync().safeArea,
+        safeArea: uni.getSystemInfoSync().safeArea,
+        
   },
   getters: {},
   mutations: {
