@@ -59,6 +59,11 @@
     3 通过了，调用接口完成 新增
     4 返回上一个页面 
    */
+  import {
+    postMembeAddress,
+    getDetailMembeAddress,
+    putMembeAddress,
+  } from "@/http/address";
   // 导入 validate对象
   import Schema from "validate";
   export default {
@@ -122,7 +127,7 @@
         this.form.isDefault = event.detail.value ? 1 : 0;
       },
       // 保存
-      submitFrom() {
+      async submitFrom() {
         // 1 获取表单数据   this.form
         // 2 进行表单合法性的验证 ？？  validate.js  库   只要是可以运行js 都可以进行验证   validate - elementui---
         //    只要是可以运行js 就可以 validate.js   它也是很多的ui框架表单验证 底层
@@ -131,46 +136,52 @@
         // 3.2 看使用说明即可
   
         // 新建表单校验对象
-        const addressRule = new Schema({
-          // 姓名
-          receiver: {
-            required: true,
-            message: {
-              required: "请输入收货人姓名",
+        const addressRule = new Schema(
+          {
+            // 姓名
+            receiver: {
+              required: true,
+              message: {
+                required: "请输入收货人姓名",
+              },
+            },
+            // 手机号码
+            contact: {
+              required: true,
+              // 指定规则 正则
+              match: /^1(3\d|4[5-9]|5[0-35-9]|6[567]|7[0-8]|8\d|9[0-35-9])\d{8}$/,
+              message: {
+                required: "请输入手机号码",
+                match: "请输入合法的手机号码",
+              },
+            },
+            // 地址编码
+            provinceCode: {
+              required: true,
+              message: "请选择省份",
+            },
+            cityCode: {
+              required: true,
+              message: "请选择城市",
+            },
+            countyCode: {
+              required: true,
+              message: "请选择区/县",
+            },
+            // 详细地址
+            address: {
+              required: true,
+              message: "请输入详细地址",
             },
           },
-          // 手机号码
-          contact: {
-            required: true,
-            // 指定规则 正则
-            match: /^1(3\d|4[5-9]|5[0-35-9]|6[567]|7[0-8]|8\d|9[0-35-9])\d{8}$/,
-            message: {
-              required: "请输入手机号码",
-              match: "请输入合法的手机号码",
-            },
-          },
-          // 地址编码
-          provinceCode: {
-            required: true,
-            message: "请选择省份",
-          },
-          cityCode: {
-            required: true,
-            message: "请选择城市",
-          },
-          countyCode: {
-            required: true,
-            message: "请选择区/县",
-          },
-          // 详细地址
-          address: {
-            required: true,
-            message: "请输入详细地址",
-          },
-        });
+          {
+            // strip: false, // 禁用默认的行为，   不再剔除没有在在Schema中定义过数据   this.form  不会被删除属性
+          }
+        );
   
-        // 开始验证
-        const errorList = addressRule.validate(this.form);
+        // // 开始验证  不要直接传递我的数据  浅拷贝 信息的地址  解决 了 validate 自动剔除我们属性的问题
+        const errorList = addressRule.validate({ ...this.form });
+        // const errorList = addressRule.validate(this.form);
         // console.log(errorList);
         // 友好的弹窗 提示用户
         if (errorList[0]) {
@@ -178,12 +189,42 @@
           return; // 返回
         }
   
-        // 通过以上的校验 表示没错  正常往下 执行业务
-        console.log("正常执行业务");
+        console.log(this.form);
+        // return;
   
-        // 传递参数 调用 新增地址的接口
-        // 成功  弹出提示  返回上一页 ！！
+        // 通过以上的校验 表示没错  正常往下 执行业务
+        // console.log("正常执行业务");
+  
+        // 判断新建还是编辑
+        if (this.form.id) {
+          // 编辑
+          await putMembeAddress(this.form.id, this.form);
+          uni.showToast({ title: "编辑成功" });
+        } else {
+          // 新建
+          // 传递参数 调用 新增地址的接口
+          await postMembeAddress(this.form);
+  
+          // 成功  弹出提示  返回上一页 ！！
+          uni.showToast({ title: "新增成功" });
+        }
+  
+        setTimeout(() => {
+          uni.navigateBack();
+        }, 1500);
       },
+    },
+    // 页面开始加载
+    async onLoad({ id }) {
+      if (id) {
+        // 编辑
+        uni.setNavigationBarTitle({ title: "编辑地址" });
+        const result = await getDetailMembeAddress(id);
+        // 将地址详情 设置到 data中
+        this.form = result.result;
+      } else {
+        uni.setNavigationBarTitle({ title: "新建地址" });
+      }
     },
   };
   </script>

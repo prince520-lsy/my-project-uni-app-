@@ -52,7 +52,7 @@
   2 发送请求 获取 当前登录用户对应的  地址数据
    */
   
-  import { getMembeAddress } from "@/http/address";
+  import { getMembeAddress, deleteMembeAddress } from "@/http/address";
   export default {
     data() {
       return {
@@ -60,16 +60,43 @@
         addressList: [],
       };
     },
-    async onLoad() {
-      const result = await getMembeAddress();
-      this.addressList = result.result;
+    // 成功新增地址后，返回了上一页  没有显示最新数据 ？
+    // onLoad 和 onShow区别
+    // onLoad 页面开始加载的时候 触发 触发一次
+    // onShow 页面重新被看见的时候 触发
+  
+    onShow() {
+      this.loadata();
     },
     methods: {
+      async loadata() {
+        const result = await getMembeAddress();
+        this.addressList = result.result;
+      },
       onClick(e) {
         console.log("点击事件click");
       },
       swipeChange(e, index) {
         console.log("滑动事件");
+      },
+      // 点击删除
+      async onAddressRemove(id) {
+        // 如何在这里 获取到 被删除的地址的id！！！
+        // console.log(id);
+  
+        // 弹出对话框 询问用户 是否要删除
+        const [err, { confirm }] = await uni.showModal({
+          title: "警告",
+          content: "您确定删除吗",
+        });
+        if (confirm) {
+          // 是 获取id 调用接口 完成删除
+          await deleteMembeAddress(id);
+          // 删除成功后，给出用户一个提示
+          uni.showToast({ title: "删除成功" });
+          // 获取最新地址数据  更新页面
+          this.loadata();
+        }
       },
     },
   };

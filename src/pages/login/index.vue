@@ -113,8 +113,8 @@ export default {
 
     // 模拟手机号码登录 同学们用这
     async handleTestLogin() {
-      const result = await postLoginWxminSimple(15834598765);
-      console.log(result);
+      const result = await postLoginWxminSimple(13340112862);
+      console.log(117,result);
       this.setProfile(result.result); // 把登录后的信息 存到 vuex中
 
       // 弹出提示框

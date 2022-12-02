@@ -15,12 +15,29 @@
 		}
 	  },
 	  {
+		"path": "pages/my/address/form",
+		"style": {
+		  "navigationBarTitleText": "新建地址"
+		}
+	  },
+	  {
 		"path": "pages/login/index",
 		"style": {
 		  "navigationBarTitleText": "登录"
 		}
 	  },
-
+	  {
+		"path": "pages/my/settings",
+		"style": {
+		  "navigationBarTitleText": "账户管理"
+		}
+	  },
+	  {
+		"path": "pages/my/address/index",
+		"style": {
+		  "navigationBarTitleText": "地址管理"
+		}
+	  },
 	  {
 		"path": "pages/recommend/index",
 		"style": {}
@@ -98,7 +115,6 @@
 		  "path": "pages/login/index",
 		  "query": ""
 		},
-		
 		{
 		  "name": "修改个人信息",
 		  "path": "pages/my/profile",
@@ -115,9 +131,24 @@
 		  "query": ""
 		},
 		{
+		  "name": "账户中心",
+		  "path": "pages/my/settings",
+		  "query": ""
+		},
+		{
+		  "name": "地址管理",
+		  "path": "pages/my/address/index",
+		  "query": ""
+		},
+		{
 		  "name": "推荐",
 		  "path": "pages/recommend/index",
 		  "query": "type=1"
+		},
+		{
+		  "name": "新建地址",
+		  "path": "pages/my/address/form",
+		  "query": ""
 		}
 	  ]
 	}

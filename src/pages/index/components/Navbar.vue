@@ -1,6 +1,6 @@
 <template>
   <!-- 导航条 -->
-  <view class="navbar" :style="{ paddingTop: safeArea.top + 30+'px' }">
+  <view class="navbar" :style="{ paddingTop: safeArea.top + 'px' }">
     <!-- 文字logo -->
     <view class="logo">
       <image
@@ -23,9 +23,6 @@ export default {
   computed: {
     ...mapState(["safeArea"]),
   },
-  created() {
-    console.log(27,this.safeArea);
-  }
 };
 </script>
 
