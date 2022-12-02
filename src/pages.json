@@ -21,6 +21,12 @@
 		}
 	  },
 	  {
+		"path": "pages/goods/index",
+		"style": {
+		  "navigationStyle": "custom"
+		}
+	  },
+	  {
 		"path": "pages/login/index",
 		"style": {
 		  "navigationBarTitleText": "登录"
@@ -36,6 +42,12 @@
 		"path": "pages/my/address/index",
 		"style": {
 		  "navigationBarTitleText": "地址管理"
+		}
+	  },
+	  {
+		"path": "pages/vuetest/index",
+		"style": {
+		  "navigationBarTitleText": "测试"
 		}
 	  },
 	  {
@@ -116,6 +128,11 @@
 		  "query": ""
 		},
 		{
+		  "name": "测试",
+		  "path": "pages/vuetest/index",
+		  "query": ""
+		},
+		{
 		  "name": "修改个人信息",
 		  "path": "pages/my/profile",
 		  "query": ""
@@ -146,6 +163,16 @@
 		  "query": "type=1"
 		},
 		{
+		  "name": "购物车",
+		  "path": "pages/cart/index",
+		  "query": ""
+		},
+		{
+		  "name": "商品详情",
+		  "path": "pages/goods/index",
+		  "query": "id=1667068"
+		},
+		{
 		  "name": "新建地址",
 		  "path": "pages/my/address/form",
 		  "query": ""
@@ -153,3 +180,4 @@
 	  ]
 	}
   }
+  

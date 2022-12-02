@@ -1,6 +1,6 @@
 <template>
   <!-- 导航条 -->
-  <view class="navbar" :style="{ paddingTop: safeArea.top + 'px' }">
+  <view class="navbar">
     <!-- 文字logo -->
     <view class="logo">
       <image
