@@ -32,3 +32,12 @@ export const deleteMembeAddress = (id) => {
 export const getDetailMembeAddress = (id) => {
   return http({ url: `/member/address/${id}`, method: "get" });
 };
+
+/**
+ * 根据id来修改地址
+ * @param {String} id 待修改地址的id
+ * @param {Object} data 地址信息
+ */
+export const putMembeAddress = (id, data) => {
+  return http({ url: `/member/address/${id}`, method: "put", data });
+};
