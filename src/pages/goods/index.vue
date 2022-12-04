@@ -364,7 +364,7 @@
       // 点击 sku组件中 加入购物车
       async onAddCart(selectShop) {
         // console.log(this.$refs.skuRef);
-        // console.log(selectShop);
+        console.log(367,selectShop);
         this.selectArrText = selectShop.sku_name_arr.join(" "); // 显示 选中的规格参数
   
         this.isShowSku = false; // 关闭 sku组件
