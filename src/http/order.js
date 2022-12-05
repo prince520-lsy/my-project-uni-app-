@@ -8,6 +8,14 @@ export const getMembeOrderPre = () => {
 };
 
 /**
+ * 获取立即购买的参数
+ * @param {Object} data 立即购买参数  skuId count addressId
+ */
+export const getMembeOrderPreNow = (data) => {
+  return http({ url: "/member/order/pre/now", data });
+};
+
+/**
  * 创建订单
  * @param {Object} data 创建订单用到的数据
  */

@@ -38,6 +38,7 @@ page {
   background-size: cover;
   position: relative;
   overflow: hidden;
+  padding-top: 60rpx;
   .logo {
     display: flex;
     align-items: center;

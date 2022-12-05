@@ -15,9 +15,35 @@
 		}
 	  },
 	  {
+		"path": "pages/order/index",
+		"style": {
+		  "navigationBarTitleText": "我的订单"
+		}
+	  },
+	  {
 		"path": "pages/my/address/form",
 		"style": {
 		  "navigationBarTitleText": "新建地址"
+		}
+	  },
+	  {
+		"path": "pages/order/payment",
+		"style": {
+		  "navigationStyle": "custom",
+		  "navigationBarTextStyle": "white"
+		}
+	  },
+	  {
+		"path": "pages/order/detail",
+		"style": {
+		  "navigationStyle": "custom",
+		  "navigationBarTextStyle": "white"
+		}
+	  },
+	  {
+		"path": "pages/order/create/index",
+		"style": {
+		  "navigationBarTitleText": "填写订单"
 		}
 	  },
 	  {
@@ -166,6 +192,21 @@
 		  "name": "购物车",
 		  "path": "pages/cart/index",
 		  "query": ""
+		},
+		{
+		  "name": "填写订单",
+		  "path": "pages/order/create/index",
+		  "query": ""
+		},
+		{
+		  "name": "我的订单",
+		  "path": "pages/order/index",
+		  "query": ""
+		},
+		{
+		  "name": "订单详情",
+		  "path": "pages/order/detail",
+		  "query": "id=1599313996018618370"
 		},
 		{
 		  "name": "商品详情",
